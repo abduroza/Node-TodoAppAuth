@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-process.env.NODE_ENV = 'development' //for local test
+//process.env.NODE_ENV = 'development' //for local test
 const env = process.env.NODE_ENV //|| 'development'
  /* istanbul ignore else  */ if (env == 'development' //|| env == 'test'
  ){
