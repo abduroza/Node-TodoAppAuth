@@ -10,9 +10,8 @@ function createTodo(req, res){
     }, (err, data) => {
         if (err) return res.status(400).json(failRes(err.message, "Wrong Type"));
         res.status(201).json(sucRes(data, "Entry Create Success"));
-        console.log(data)
         User.findById(req.user, (err, user)=>{
-            if(err) return res.status(404).json(failRes('error'))
+            //if(err) return res.status(404).json(failRes(err))
             user.tasks.push(data)
             user.save()
             data.user = req.user
@@ -31,7 +30,6 @@ function updateTodo (req, res){
             }, (err, data) => {
                 if (err) return res.status(400).json(failRes(err.message, "Wrong Type"));
                 res.status(200).json(sucRes(req.body, "Entry Task Update Success"));
-                console.log(req.body)
             }
         )
     })
@@ -64,8 +62,7 @@ function showTodo (req, res){
 }
 function indexTodo (req, res){
     Task.find ({user: req.user}, (err, data) => {
-        if (err) return res.status(404).json(failRes(err, "this isn't your task. Can't show if not your task"));
-        // if (err) return res.status(404).json(failRes("Entry Faiil to Display")); // this func is commented to pass coverage test
+        //if (err) return res.status(404).json(failRes(err, "this isn't your task. Can't show if not your task"));
         res.status(200).json(sucRes(data, "Displaying All Entry Success"));
     })
 }

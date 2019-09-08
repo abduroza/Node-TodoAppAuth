@@ -3,9 +3,9 @@ const app = express();
 const mongoose = require('mongoose');
 
 //process.env.NODE_ENV = 'development' //for local test
-const env = process.env.NODE_ENV //|| 'development'
- /* istanbul ignore else  */ if (env == 'development' //|| env == 'test'
- ){
+const env = process.env.NODE_ENV || 'development'
+ /* istanbul ignore else  */ 
+ if (env == 'development' || env == 'test'){
     require('dotenv').config();
 }
 
@@ -19,7 +19,7 @@ mongoose.connect(configDB[env], {useNewUrlParser: true, useCreateIndex: true, us
 .then(()=> console.log('connect DB'));
 
 const morgan = require('morgan');
-app.use(morgan('tiny')) // to show summary statement in console
+app.use(morgan('tiny')) // to show log in console
 const cors = require('cors')
 app.use(cors()) // to connect with frontend. if not given can't read by frontend
 app.use(express.json()); //to get req.body as changer bodyparser

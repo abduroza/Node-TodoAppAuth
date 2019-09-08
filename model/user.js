@@ -29,9 +29,9 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    tasks: [{ //in users collection appear task objectID on 2nd field
+    tasks: [{ //in users collection appear task on 2nd field
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'task'
+        ref: 'Task'
     }]
 })
 
