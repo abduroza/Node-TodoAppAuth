@@ -68,7 +68,7 @@ describe('/Create, Show, Update and Delete Task', () => {
     })
 
     // after((done)=>{
-    //     Task.remove({}, (err)=>{
+    //     Task.remove({}, (err)=>{ //to remove task after all done. database will empty
     //         done()
     //     })
     // })
@@ -299,34 +299,6 @@ describe('/Create, Show, Update and Delete Task', () => {
     //     await deleteTodo()
     // }
     // del()
-
-
-
- //--------- user not found due to user already remove
-
-    // it("can't show selected todo task because user has been remove", done=>{
-    //     // Task.create({
-    //     //     name: faker.random.word(),
-    //     //     date: faker.date.future(),
-    //     //     note: faker.random.words(),
-    //     //     priority: 'none',
-    //     //     status: false,
-    //     //     user: dataUser2._id
-    //     // }, (err, data) => {
-    //             console.log(dataUser2)
-    //             // console.log(data)
-    //             //User.findByIdAndDelete(dataUser2).exec()
-    //             chai.request(server)
-    //                 .get('/api/task/show/'+ task2._id)
-    //                 .set('authorization', 'Bearer ' + token2)
-    //                 .end((err,res)=>{
-    //                     res.should.have.status(404)
-    //                     // res.body.should.have.property('success').equal(false)
-    //                     // res.body.should.have.property('results').equal("User Not Found")
-    //                     done()
-    //             })
-    //         //})
-    // })
 
 
 })

@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 //process.env.NODE_ENV = 'development' //for local test
-const env = process.env.NODE_ENV || 'development'
+const env = process.env.NODE_ENV //|| 'development' //env development entered in package.json 'dev'. command: npm run dev
  /* istanbul ignore else  */ 
  if (env == 'development' || env == 'test'){
     require('dotenv').config();
@@ -36,11 +36,6 @@ app.get('/', (req, res) => {
         messages: "Welcome to ToDo API"
     })
 });
-
-//add swagger for documentation
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //perform error message if wrong type the endpoint/route
 app.use(function(req, res){
