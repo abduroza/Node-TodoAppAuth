@@ -51,6 +51,7 @@ describe('/Create, Show, Update and Delete Task', () => {
             .send(userTest)
             .end(function (err, res) {
                 dataUser1 = res.body.results
+                //console.log(dataUser1)
             done()
             })
     })
@@ -302,28 +303,30 @@ describe('/Create, Show, Update and Delete Task', () => {
 
 
  //--------- user not found due to user already remove
-    // it("should not show selected todolist because user been remove", done=>{
-    //     Task.create({title: faker.random.words(),
-    //         user: xxx._id}, (err, data)=>{
-    //             if (err) console.log(err)
-    //             User.findByIdAndDelete(xxx.id).exec()
+
+    // it("can't show selected todo task because user has been remove", done=>{
+    //     // Task.create({
+    //     //     name: faker.random.word(),
+    //     //     date: faker.date.future(),
+    //     //     note: faker.random.words(),
+    //     //     priority: 'none',
+    //     //     status: false,
+    //     //     user: dataUser2._id
+    //     // }, (err, data) => {
+    //             console.log(dataUser2)
+    //             // console.log(data)
+    //             //User.findByIdAndDelete(dataUser2).exec()
     //             chai.request(server)
-    //                 .get('/api/todo/'+ data._id)
-    //                 .set('authorization', token)
+    //                 .get('/api/task/show/'+ task2._id)
+    //                 .set('authorization', 'Bearer ' + token2)
     //                 .end((err,res)=>{
-    //                     res.should.have.status(403)
-    //                     res.body.should.have.property('success').equal(false)
-    //                     res.body.should.have.property('result').equal("there is no user found")
+    //                     res.should.have.status(404)
+    //                     // res.body.should.have.property('success').equal(false)
+    //                     // res.body.should.have.property('results').equal("User Not Found")
     //                     done()
     //             })
-    //         })
+    //         //})
     // })
-
- 
-
-
-
-
 
 
 })
