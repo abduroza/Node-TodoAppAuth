@@ -1,4 +1,5 @@
 const User = require('../model/user.js')
+const Task = require('../model/task.js')
 const {sucRes, failRes} = require('../helper/resFormat.js')
 const bcrypt = require('bcrypt')
 const saltRounds = 10
@@ -50,8 +51,10 @@ function show(req, res){
 }
 
 function deleteUser(req, res) {
-    User.findByIdAndDelete(req.user, (err, data) =>{
-        res.status(200).json(sucRes(data, "Delete an User Success"));
+    Task.deleteMany({user: req.user}, (err, tasks) =>{ //delete all task in active user
+        User.findByIdAndDelete(req.user, (err, data) =>{//delete an user
+            res.status(200).json(sucRes(data, "Delete an User and all Success"));
+        })
     })
 }
 

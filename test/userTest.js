@@ -147,7 +147,6 @@ describe('/show user data', () =>{
     })
 })
 
-
 // describe('/show user deleted', () =>{ //this test is success to coverage auth, but still fail test
 //     it('can not show user data due to user has been deleted', (done) =>{
 //         chai.request(server)

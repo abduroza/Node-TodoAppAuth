@@ -23,7 +23,7 @@ function updateTodo (req, res){
     Task.findById (req.params.id, (err, data) =>{
         if (err) {
             return res.status(404).json(failRes("ID not found"));
-        } else if (data.user._id != req.user) 
+        } else if (data.user._id != req.user)
             return res.status(404).json(failRes("this isn't your task"));
         Task.findByIdAndUpdate(
             req.params.id, {$set: req.body //{$set: req.body} can change with req.body
@@ -61,8 +61,8 @@ function showTodo (req, res){
     )
 }
 function indexTodo (req, res){
-    Task.find ({user: req.user}, (err, data) => {
-        //if (err) return res.status(404).json(failRes(err, "this isn't your task. Can't show if not your task"));
+    Task.find ({user: req.user}, (err, data) => { //{user: req.user}, user in 1st must same in task model
+        //if (err) return res.status(404).json(failRes(err)); //impossible error
         res.status(200).json(sucRes(data, "Displaying All Entry Success"));
     })
 }

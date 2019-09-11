@@ -1,7 +1,7 @@
 {
   "name": "todoapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "To do app API with authentication",
   "main": "server.js",
   "engines": {
     "node": "10.16.0",
