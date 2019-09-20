@@ -26,4 +26,4 @@ production:
     - dpl --provider=heroku --app=todoappauth --api-key=$HEROKU_API_KEY
   
   only:
-    - master
+    - develop
