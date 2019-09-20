@@ -36,7 +36,7 @@ describe('/Register User', () => {
             username: faker.internet.userName(),
             email: faker.internet.email(),
             password: faker.internet.password()
-        } //not use user.save((err, user)=>{}) because not make new user. only declare user
+        } //not use userTest2.save((err, user)=>{}) because not make new user. only declare user
         chai.request(server)
             .post('/api/user/register')
             .send(userTest2)

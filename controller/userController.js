@@ -50,9 +50,9 @@ function show(req, res){
     })
 }
 
-function deleteUser(req, res) {
+function deleteUser(req, res) { //delete an user along with tasks
     Task.deleteMany({user: req.user}, (err, tasks) =>{ //delete all task in active user
-        User.findByIdAndDelete(req.user, (err, data) =>{//delete an user
+        User.findByIdAndDelete(req.user, (err, data) =>{ //delete an user
             res.status(200).json(sucRes(data, "Delete an User and all Success"));
         })
     })

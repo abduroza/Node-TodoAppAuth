@@ -14,7 +14,7 @@ function createTodo(req, res){
             //if(err) return res.status(404).json(failRes(err))
             user.tasks.push(data)
             user.save()
-            data.user = req.user
+            data.user = req.user // can use "data.user.push(user)" but in model, ref must be an array not object
             data.save()
         })
     })
@@ -54,7 +54,7 @@ function showTodo (req, res){
         , (err, data)=> {
             if (err) {
                 return res.status(404).json(failRes("ID not found"));
-            } else if (data.user._id != req.user) 
+            } else if (data.user._id != req.user)
                 return res.status(404).json(failRes("this isn't your task"));
             res.status(200).json(sucRes(data, "An Entry Show Success"));
         }
