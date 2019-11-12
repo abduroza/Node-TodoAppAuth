@@ -14,7 +14,7 @@ describe('/GET root path', () => {
             res.should.have.status(200);
             res.body.should.be.an('object');
             res.body.should.have.property('success').equal(true);
-            res.body.should.have.property('messages').equal("Welcome to ToDo API");
+            res.body.should.have.property('messages').equal("Welcome to ToDo API With Authentication");
             done();
         })
     })
