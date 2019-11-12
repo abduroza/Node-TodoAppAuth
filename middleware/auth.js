@@ -12,7 +12,7 @@ function auth(req, res, next){
             //console.log(decoded)
             User.findById (
                 req.user, (err, data) => {
-                    if (!data) return res.status(404).json(failRes("User Not Found"))
+                    if (!data) return res.status(410).json(failRes("User Gone Due to Already Deleted")) //check if user already delete account
                     //res.status(201).json(sucRes(data, "data ready"))// if use this, can cause crash due to re send to header again, but data success create 
                 }
             )

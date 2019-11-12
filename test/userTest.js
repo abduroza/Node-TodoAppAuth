@@ -147,13 +147,13 @@ describe('/show user data', () =>{
     })
 })
 
-// describe('/show user deleted', () =>{ //this test is success to coverage auth, but still fail test
+// describe('/show user deleted', () =>{ //this test is success to coverage auth, but still fail test. the error is same in postman test. will get notification "can't set headers after they are sent to the client". Conslusion, function of User.findById in auth can't tested
 //     it('can not show user data due to user has been deleted', (done) =>{
 //         chai.request(server)
 //             .delete('/api/user/delete')
 //             .set('Authorization', 'bearer ' + token) //user with this token already delete by postive test above
 //             .end((err, res) =>{
-//                 res.should.have.status(404)
+//                 res.should.have.status(410)
 //                 done()
 //             })
 //     })
