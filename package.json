@@ -1,7 +1,7 @@
 {
   "name": "todoapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "To do app API with authentication",
   "main": "server.js",
   "engines": {
     "node": "10.16.0",
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "dev": "NODE_ENV='development' nodemon server.js",
     "test": "mocha test/* --exit",
     "test-coverage": "nyc --reporter=html --reporter=text mocha -recursive ./test --timeout 10000 --exit"
   },
@@ -19,6 +20,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
     "mocha": "^6.2.0",
     "mongoose": "^5.6.10",

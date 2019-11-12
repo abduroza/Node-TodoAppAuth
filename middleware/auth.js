@@ -7,13 +7,13 @@ function auth(req, res, next){
     if (!bearerToken) return res.status(401).json(failRes("Token Not Available"))
     let splitToken = bearerToken.split(" ")//only 2nd array will read
     try {
-        jwt.verify(splitToken[1], 'xyz', function(err, decoded){
-            //if(err) return res.status(400).json("fail token")
+        jwt.verify(splitToken[1], 'xyz', function(err, decoded){ //decoded means, change user ID encoded into original ID
             req.user = decoded._id
+            //console.log(decoded)
             User.findById (
                 req.user, (err, data) => {
-                    if (!data) return res.status(404).json(failRes("User Not Found"))
-                    //res.status(201).json(sucRes(data, "data ready"))// if use this, can cause crash due to re send to header again, but data suscess create 
+                    if (!data) return res.status(410).json(failRes("User Gone Due to Already Deleted")) //check if user already delete account
+                    //res.status(201).json(sucRes(data, "data ready"))// if use this, can cause crash due to re send to header again, but data success create 
                 }
             )
             next()
